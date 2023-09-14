@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag "blue_background", media: "all", "data-turbo-track" => "reload" %>
+    <%= render 'partials/ihorsus' %>
+
+<body class="blue">
+    <p class="blue-hello" id="hello_rails">Hello Rails</p>
+    <%= image_tag "Ruby_on_Rails-Logo.wine.svg", id: "img-rails" %>
+
+    <%= form_tag(show_by_keyword_path, method: :get) do %>
+      <%= text_field_tag :keyword, params[:keyword] %>
+      <%= submit_tag "Search" %>
+    <% end %>
+</body>
+
+<%= javascript_include_tag "blue_background", "data-turbo-track" => "reload" %>

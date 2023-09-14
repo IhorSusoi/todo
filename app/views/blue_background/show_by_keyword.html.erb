@@ -1,0 +1,15 @@
+<h1>Search Results</h1>
+<% if @results.any? %>
+  <ul>
+    <% @results.each_with_index do |result, index| %>
+      <p><%= index + 1 %>. <%= result.title %></p>
+    <% end %>
+  </ul>
+<% else %>
+  <h1 style="color: red">No results found.</h1>
+
+  <%= form_tag(show_by_keyword_path, method: :get) do %>
+      <%= text_field_tag :keyword, params[:keyword] %>
+      <%= submit_tag "Search" %>
+  <% end %>
+<% end %>

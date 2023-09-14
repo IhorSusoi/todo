@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Todo items</h1>
+
+<div id="todo_items">
+  <% @todo_items.limit(150).each_with_index do |todo_item, index| %>
+  <div class="todo_item_block">
+    <div class="number" style="display: flex; flex-direction: row"><div><%= index+1 %>. </div><%= render todo_item %></div>
+    <div class="complete-show-block">
+      <%= link_to "Show this todo item", todo_item %> <%= link_to "Toggle Status", toggle_status_todo_item_path(todo_item), data: { turbo_method: :patch }, remote: true, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<%= link_to "New todo item", new_todo_item_path %>
